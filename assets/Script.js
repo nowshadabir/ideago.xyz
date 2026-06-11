@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     renderFooter();
     initTheme();
     initMobileMenu();
+    initPortfolio();
     lucide.createIcons();
 });
 
@@ -26,7 +27,7 @@ function renderNavigation() {
                 <a href="index" class="nav-link">Home</a>
                 <a href="about" class="nav-link hover-rose">About</a>
                 <a href="service" class="nav-link hover-cyan">Services</a>
-                <a href="content" class="nav-link hover-orange">Content</a>
+                <a href="portfolio" class="nav-link hover-orange">Portfolio</a>
                 <a href="team" class="nav-link hover-default">Team</a>
             </div>
 
@@ -53,7 +54,7 @@ function renderNavigation() {
             <a href="index" class="mobile-link">Home</a>
             <a href="about" class="mobile-link hover-rose">About</a>
             <a href="service" class="mobile-link hover-cyan">Services</a>
-            <a href="content" class="mobile-link hover-orange">Content</a>
+            <a href="portfolio" class="mobile-link hover-orange">Portfolio</a>
             <a href="team" class="mobile-link hover-yellow">Team</a>
             <hr class="mobile-divider">
             <a href="contact" class="mobile-link mobile-cta">Start Project</a>
@@ -83,7 +84,7 @@ function renderFooter() {
                         <div class="footer-logo-mark"><img src="assets/Logo.png" alt="iDEAGO logo"></div>
                         <span class="footer-brand-name">iDEAGO</span>
                     </div>
-                    <p class="footer-tagline">A full-service 360¡Æ agency bridging the gap between where you are and where you want to be.</p>
+                    <p class="footer-tagline">A full-service 360ï¿½ï¿½ agency bridging the gap between where you are and where you want to be.</p>
                     <div class="footer-socials">
                         <a href="#" class="social-btn" aria-label="Facebook">
                             <i data-lucide="facebook" style="width:1.25rem;height:1.25rem;"></i>
@@ -143,7 +144,7 @@ function renderFooter() {
                 <p>
                     &copy; 2025 iDEAGO Marketing Solutions. All rights reserved.
                     <span class="footer-divider">|</span>
-                    Developed by <a href="https://vivagodigital.com" target="_blank" style="color: var(--color-purple); font-weight: 600; text-decoration: none;">Vivago Digital</a>
+                    Developed by <a href="https://vivagodigital.com" target="_blank" style="color: var(--color-purple); font-weight: 600; text-decoration: none;">Vivago Technologies</a>
                 </p>
                 <div class="footer-legal">
                     <a href="#">Privacy Policy</a>
@@ -194,4 +195,72 @@ function initMobileMenu() {
     if (hamburgerBtn) hamburgerBtn.addEventListener('click', toggleMenu);
     if (closeMenuBtn) closeMenuBtn.addEventListener('click', toggleMenu);
     if (mobileLinks) mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+}
+
+function initPortfolio() {
+    const filterPills = document.querySelectorAll('.filter-pill');
+    const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+    // Filtering
+    if (filterPills.length > 0) {
+        filterPills.forEach(pill => {
+            pill.addEventListener('click', () => {
+                // Update active class
+                filterPills.forEach(p => p.classList.remove('active'));
+                pill.classList.add('active');
+
+                const filterValue = pill.getAttribute('data-filter');
+
+                portfolioItems.forEach(item => {
+                    if (filterValue === 'all' || item.getAttribute('data-industry') === filterValue) {
+                        item.style.display = 'block';
+                        setTimeout(() => { 
+                            item.style.opacity = '1'; 
+                            item.style.transform = 'scale(1)'; 
+                        }, 10);
+                    } else {
+                        item.style.opacity = '0';
+                        item.style.transform = 'scale(0.95)';
+                        setTimeout(() => { item.style.display = 'none'; }, 300);
+                    }
+                });
+            });
+        });
+    }
+
+    // Modal / Lightbox Logic
+    const modal = document.getElementById('portfolio-modal');
+    if (!modal) return;
+    
+    const modalContent = document.getElementById('portfolio-modal-content');
+    const closeBtn = document.getElementById('close-modal-btn');
+
+    portfolioItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const mediaType = item.getAttribute('data-type');
+            const mediaSrc = item.getAttribute('data-src');
+            
+            modalContent.innerHTML = ''; // clear old
+
+            if (mediaType === 'video') {
+                modalContent.innerHTML = `<video controls autoplay style="max-width:100%; max-height:90vh;"><source src="${mediaSrc}" type="video/mp4">Your browser does not support the video tag.</video>`;
+            } else {
+                modalContent.innerHTML = `<img src="${mediaSrc}" alt="Portfolio Full View" style="max-width:100%; max-height:90vh;">`;
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // prevent background scrolling
+        });
+    });
+
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        setTimeout(() => { modalContent.innerHTML = ''; }, 300); // clear after animation
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+    });
 }

@@ -3171,3 +3171,104 @@ textarea.form-input {
 .dark .btn-form-submit:hover {
     box-shadow: 0 25px 50px -12px rgba(234, 179, 8, 0.4);
 }
+
+/* ============================================================
+   PORTFOLIO REDESIGN STYLES
+   ============================================================ */
+
+/* Filter Navigation */
+.portfolio-filter-nav {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+    scrollbar-width: none; /* Firefox */
+}
+.portfolio-filter-nav::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.filter-pill {
+    white-space: nowrap;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-card);
+    border: 1px solid var(--border-card);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+.filter-pill:hover {
+    background: rgba(139, 92, 246, 0.1);
+    color: var(--color-purple);
+    border-color: var(--color-purple);
+}
+.filter-pill.active {
+    background: linear-gradient(to right, var(--color-purple), var(--color-rose));
+    color: #fff;
+    border-color: transparent;
+}
+.dark .filter-pill.active {
+    background: linear-gradient(to right, var(--color-yellow), var(--color-orange));
+    color: #000;
+}
+
+/* Portfolio Lightbox Modal */
+.portfolio-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+.portfolio-modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+.portfolio-modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 90vh;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+.portfolio-modal.active .portfolio-modal-content {
+    transform: scale(1);
+}
+.portfolio-modal-content img, .portfolio-modal-content video {
+    display: block;
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+.btn-close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: rgba(255,255,255,0.2);
+    border-radius: var(--radius-full);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+    backdrop-filter: blur(4px);
+    transition: var(--transition-fast);
+}
+.btn-close-modal:hover {
+    background: rgba(255,255,255,0.4);
+}

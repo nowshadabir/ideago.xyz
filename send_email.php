@@ -31,14 +31,16 @@ $message = isset($data['message']) ? htmlspecialchars(strip_tags($data['message'
 $mail = new PHPMailer(true);
 
 try {
+    $env = parse_ini_file(__DIR__ . '/.env');
+
     // Server settings for SMTP
     $mail->isSMTP();
-    $mail->Host       = 'mail.ideago.xyz';
+    $mail->Host       = $env['SMTP_HOST'];
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'hello@ideago.xyz';
-    $mail->Password   = 'JossVaiaa@IDEAGO_Tech'; // Use the email account's password
+    $mail->Username   = $env['SMTP_USERNAME'];
+    $mail->Password   = $env['SMTP_PASSWORD'];
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS; // Use SMTPS for port 465
-    $mail->Port       = 465;
+    $mail->Port       = $env['SMTP_PORT'];
 
     // Recipients
     $mail->setFrom($email, $firstName . ' ' . $lastName); // Set sender from the form

@@ -63,94 +63,100 @@
         <div class="container">
 
             <!-- Filters -->
-            <div class="content-filter-wrap">
-                <button class="filter-btn active" onclick="filterContent('all')">All Work</button>
-                <button class="filter-btn" onclick="filterContent('poster')">Posters</button>
-                <button class="filter-btn" onclick="filterContent('banner')">Banners</button>
-                <button class="filter-btn" onclick="filterContent('flyer')">Flyers</button>
-                <button class="filter-btn" onclick="filterContent('video')">Videos</button>
+            <div class="portfolio-filter-nav">
+                <button class="filter-pill active" data-filter="all">All Industries</button>
+                <button class="filter-pill" data-filter="healthcare">HealthCare</button>
+                <button class="filter-pill" data-filter="real-estate">Real Estate</button>
+                <button class="filter-pill" data-filter="education">Education</button>
+                <button class="filter-pill" data-filter="it-solution">IT Product Solution</button>
+                <button class="filter-pill" data-filter="brand-marketing">Brand Marketing</button>
+                <button class="filter-pill" data-filter="hotel-tourism">Hotel & Tourism</button>
+                <button class="filter-pill" data-filter="printable">Creative Printable</button>
             </div>
 
             <!-- Grid -->
             <div class="portfolio-grid" id="portfolio-grid">
 
-                <!-- Poster 1 (Tall) -->
-                <div class="content-item tall" data-category="poster">
+                <!-- HealthCare Item (Tall) -->
+                <div class="content-item portfolio-item tall bento-card" data-industry="healthcare" data-type="image" data-src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800">
                     <div class="content-media">
-                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800"
-                            alt="Creative Poster">
+                        <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80&w=800" alt="HealthCare Creative">
                     </div>
                     <div class="content-overlay">
-                        <span class="content-cat">Poster</span>
-                        <h3 class="content-title">Brand Identity Concept</h3>
+                        <span class="content-cat">Digital Poster</span>
+                        <h3 class="content-title">MediCare Campaign</h3>
                     </div>
                 </div>
 
-                <!-- Video 1 (Wide) -->
-                <div class="content-item wide" data-category="video">
+                <!-- Real Estate Item (Wide) -->
+                <div class="content-item portfolio-item wide bento-card" data-industry="real-estate" data-type="video" data-src="https://www.w3schools.com/html/mov_bbb.mp4">
                     <div class="content-media">
-                        <img src="https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&q=80&w=1200"
-                            alt="Video Placeholder">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=1200" alt="Real Estate Promo">
                         <div class="video-play-hint">
                             <i data-lucide="play" fill="white"></i>
                         </div>
                     </div>
                     <div class="content-overlay">
-                        <span class="content-cat">Cinematic</span>
-                        <h3 class="content-title">Global Brand TVC</h3>
+                        <span class="content-cat">Cinematic Video</span>
+                        <h3 class="content-title">Luxury Villas Promo</h3>
                     </div>
                 </div>
 
-                <!-- Banner 1 -->
-                <div class="content-item" data-category="banner">
+                <!-- Education Item -->
+                <div class="content-item portfolio-item bento-card" data-industry="education" data-type="image" data-src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800">
                     <div class="content-media">
-                        <img src="https://images.unsplash.com/photo-1542744094-24638eff58bb?auto=format&fit=crop&q=80&w=800"
-                            alt="Web Banner">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&q=80&w=800" alt="Education Banner">
                     </div>
                     <div class="content-overlay">
-                        <span class="content-cat">Banner</span>
-                        <h3 class="content-title">SaaS Launch Campaign</h3>
+                        <span class="content-cat">Social Banner</span>
+                        <h3 class="content-title">University Admissions</h3>
                     </div>
                 </div>
 
-                <!-- Flyer 1 -->
-                <div class="content-item" data-category="flyer">
+                <!-- IT Product Solution Item -->
+                <div class="content-item portfolio-item bento-card" data-industry="it-solution" data-type="image" data-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800">
                     <div class="content-media">
-                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=800"
-                            alt="Flyer Design">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="IT Solutions">
+                    </div>
+                    <div class="content-overlay">
+                        <span class="content-cat">App Interface</span>
+                        <h3 class="content-title">SaaS Dashboard</h3>
+                    </div>
+                </div>
+
+                <!-- Brand Marketing Item (Tall) -->
+                <div class="content-item portfolio-item tall bento-card" data-industry="brand-marketing" data-type="image" data-src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800">
+                    <div class="content-media">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800" alt="Brand Marketing Strategy">
+                    </div>
+                    <div class="content-overlay">
+                        <span class="content-cat">Campaign Strategy</span>
+                        <h3 class="content-title">Rebranding Rollout</h3>
+                    </div>
+                </div>
+
+                <!-- Hotel & Tourism Item -->
+                <div class="content-item portfolio-item bento-card" data-industry="hotel-tourism" data-type="image" data-src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800">
+                    <div class="content-media">
+                        <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=800" alt="Hotel Resort">
                     </div>
                     <div class="content-overlay">
                         <span class="content-cat">Flyer</span>
-                        <h3 class="content-title">Event Outreach Material</h3>
+                        <h3 class="content-title">Summer Getaway</h3>
                     </div>
                 </div>
 
-                <!-- Poster 2 -->
-                <div class="content-item" data-category="poster">
+                <!-- Creative Printable Item -->
+                <div class="content-item portfolio-item bento-card" data-industry="printable" data-type="image" data-src="https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=800">
                     <div class="content-media">
-                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?auto=format&fit=crop&q=80&w=800"
-                            alt="Minimal Poster">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563dc4c?auto=format&fit=crop&q=80&w=800" alt="Printable Brochure">
                     </div>
                     <div class="content-overlay">
-                        <span class="content-cat">Poster</span>
-                        <h3 class="content-title">Minimalist Art Series</h3>
+                        <span class="content-cat">Printable</span>
+                        <h3 class="content-title">Corporate Brochure</h3>
                     </div>
                 </div>
 
-                <!-- Video 2 -->
-                <div class="content-item" data-category="video">
-                    <div class="content-media">
-                        <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?auto=format&fit=crop&q=80&w=800"
-                            alt="Social Video">
-                        <div class="video-play-hint">
-                            <i data-lucide="play" fill="white"></i>
-                        </div>
-                    </div>
-                    <div class="content-overlay">
-                        <span class="content-cat">Motion</span>
-                        <h3 class="content-title">Social Media Hook</h3>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -177,35 +183,19 @@
     <div id="shared-footer"></div>
 
     <!-- ════════════════════════════════════════════════
-         SCRIPTS
+         SCRIPTS & MODALS
     ════════════════════════════════════════════════ -->
+    <!-- Lightbox Modal -->
+    <div id="portfolio-modal" class="portfolio-modal">
+        <button id="close-modal-btn" class="btn-close-modal" aria-label="Close modal">
+            <i data-lucide="x" style="width:1.5rem;height:1.5rem;"></i>
+        </button>
+        <div id="portfolio-modal-content" class="portfolio-modal-content">
+            <!-- Media injected here -->
+        </div>
+    </div>
+
     <script src="assets/Script.js"></script>
-    <script>
-        function filterContent(category) {
-            const items = document.querySelectorAll('.content-item');
-            const buttons = document.querySelectorAll('.filter-btn');
-
-            // Update buttons
-            buttons.forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.innerText.toLowerCase().includes(category) || (category === 'all' && btn.innerText.includes('All'))) {
-                    btn.classList.add('active');
-                }
-            });
-
-            // Filter items
-            items.forEach(item => {
-                if (category === 'all' || item.getAttribute('data-category') === category) {
-                    item.style.display = 'block';
-                    setTimeout(() => { item.style.opacity = '1'; item.style.transform = 'scale(1)'; }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.95)';
-                    setTimeout(() => { item.style.display = 'none'; }, 300);
-                }
-            });
-        }
-    </script>
 
 </body>
 
